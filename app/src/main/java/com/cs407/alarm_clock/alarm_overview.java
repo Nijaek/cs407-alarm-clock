@@ -1,25 +1,24 @@
 package com.cs407.alarm_clock;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-
-    private Button buttonAlarm;
+public class alarm_overview extends AppCompatActivity {
+    private Button buttonNewAlarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_alarm_overview);
 
-        buttonAlarm = findViewById(R.id.buttonAlarm);
-        buttonAlarm.setOnClickListener(new View.OnClickListener() {
+        buttonNewAlarm = findViewById(R.id.buttonNewAlarm);
+        buttonNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, alarm_overview.class);
+                Intent intent = new Intent(alarm_overview.this, alarm_selection.class);
 
                 startActivity(intent);
             }
