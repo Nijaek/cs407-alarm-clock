@@ -22,16 +22,16 @@ public class ButtonScreen extends AppCompatActivity {
         Intent oldIntent = getIntent();
         String question = oldIntent.getStringExtra("q");
         questionSpace.setText(question);
-        int answer = Integer.parseInt(oldIntent.getStringExtra("ans"));
-        int fakeAnswer1 = Integer.parseInt(oldIntent.getStringExtra("f1"));
-        int fakeAnswer2 = Integer.parseInt(oldIntent.getStringExtra("f2"));
-        int fakeAnswer3 = Integer.parseInt(oldIntent.getStringExtra("f3"));
+        String answer = oldIntent.getStringExtra("ans");
+        String fakeAnswer1 = oldIntent.getStringExtra("f1");
+        String fakeAnswer2 = oldIntent.getStringExtra("f2");
+        String fakeAnswer3 = oldIntent.getStringExtra("f3");
 
         ArrayList<String> options = new ArrayList<String>();
-        options.add(Integer.toString(answer));
-        options.add(Integer.toString(fakeAnswer1));
-        options.add(Integer.toString(fakeAnswer2));
-        options.add(Integer.toString(fakeAnswer3));
+        options.add(answer);
+        options.add(fakeAnswer1);
+        options.add(fakeAnswer2);
+        options.add(fakeAnswer3);
         //shuffle the arraylist
         Collections.shuffle(options);
 
@@ -47,40 +47,40 @@ public class ButtonScreen extends AppCompatActivity {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(options.get(0)) == answer) {
+                if(options.get(0).equals(answer)) {
                     goToResults("Correct");
                 } else {
-                    goToResults("Incorrect\n" + question + " is\n" + Integer.toString(answer));
+                    goToResults("Incorrect\n" + question + " is\n" + answer);
                 }
             }
         });
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(options.get(1)) == answer) {
+                if(options.get(1).equals(answer)) {
                     goToResults("Correct");
                 } else {
-                    goToResults("Incorrect\n" + question + " is\n" + Integer.toString(answer));
+                    goToResults("Incorrect\n" + question + " is\n" + answer);
                 }
             }
         });
         option3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(options.get(2)) == answer) {
+                if(options.get(2).equals(answer)) {
                     goToResults("Correct");
                 } else {
-                    goToResults("Incorrect\n" + question + " is\n" + Integer.toString(answer));
+                    goToResults("Incorrect\n" + question + " is\n" + answer);
                 }
             }
         });
         option4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Integer.parseInt(options.get(3)) == answer) {
+                if(options.get(3).equals(answer)) {
                     goToResults("Correct");
                 } else {
-                    goToResults("Incorrect\n" + question + " is\n" + Integer.toString(answer));
+                    goToResults("Incorrect\n" + question + " is\n" + answer);
                 }
             }
         });
