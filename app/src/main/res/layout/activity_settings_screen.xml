@@ -35,8 +35,28 @@
             android:inputType="none"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:text="Math Difficulty"
+        android:textAlignment="center" />
+
+    <SeekBar
+        android:id="@+id/mathSlider"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_weight="0.5"
+        android:max="2"
+        android:progress="3" />
+
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/swipeSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
@@ -45,7 +65,7 @@
         android:text="Disable Swipe Puzzle" />
 
     <Switch
-        android:id="@+id/switch3"
+        android:id="@+id/slideSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
@@ -54,7 +74,7 @@
         android:text="Disable Sliding Puzzle" />
 
     <Switch
-        android:id="@+id/switch4"
+        android:id="@+id/rotationSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
@@ -80,7 +100,7 @@
             android:text="Number of Questions" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/questionNumberInput"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -90,7 +110,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saveSettingsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30sp"

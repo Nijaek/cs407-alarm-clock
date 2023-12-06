@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class SettingsScreen extends AppCompatActivity {
     String[] item = {"Math"}; //Need a function to read in other Question types
@@ -18,6 +21,8 @@ public class SettingsScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+
+        EditText questionNumInput = (EditText) findViewById(R.id.questionNumberInput);
 
         autoCompleteTextview = findViewById(R.id.auto_complete_txt);
         adapterItems = new ArrayAdapter<String>(this, R.layout.list_item, item);
@@ -31,10 +36,24 @@ public class SettingsScreen extends AppCompatActivity {
             }
         });
 
-
+        Button saveButton = (Button) findViewById(R.id.saveSettingsButton);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    int numQuest = Integer.parseInt(questionNumInput.getText().toString());
+                    goToMain();
+                } catch(NumberFormatException er){
+                    makeToast("Invalid Question Number");
+                }
+            }
+        });
     }
     public void readQuestionTypes() {
         //put other question identifiers into items here
+    }
+    public void makeToast(String message) {
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
     }
     public void goToMain() {
         Intent intent = new Intent(this, MathGenerator.class);
