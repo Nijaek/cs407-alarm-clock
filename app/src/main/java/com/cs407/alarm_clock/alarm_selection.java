@@ -27,10 +27,44 @@ public class alarm_selection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_selection);
 
+        // Extract intents
+        Intent intent = getIntent();
+        long alarmId = intent.getLongExtra("alarm_id", -1);
+        int alarmHour = intent.getIntExtra("alarm_hour", -1);
+        int alarmMinute = intent.getIntExtra("alarm_minute", -1);
+        String alarmNote = intent.getStringExtra("alarm_note");
+        Boolean alarmIsRepeatable = intent.getBooleanExtra("alarm_repeatable", false);
+
+        // Interface functionality
         radioGroupRepeat = findViewById(R.id.radioGroupRepeat);
         gridLayoutDaysOfWeek = findViewById(R.id.gridLayoutDaysOfWeek);
         textViewDaysOfWeek = findViewById(R.id.textViewDaysOfWeek);
         buttonSaveAlarm = findViewById(R.id.buttonSaveAlarm);
+        TimePicker timePicker = findViewById(R.id.timePicker);
+        EditText editTextNote = findViewById(R.id.editTextNote);
+        RadioButton radioButtonYes = findViewById(R.id.radioButtonYes);
+        RadioButton radioButtonNo = findViewById(R.id.radioButtonNo);
+        ToggleButton toggleButtonMon = findViewById(R.id.toggleButtonMon);
+        ToggleButton toggleButtonTue = findViewById(R.id.toggleButtonTue);
+        ToggleButton toggleButtonWed = findViewById(R.id.toggleButtonWed);
+        ToggleButton toggleButtonThu = findViewById(R.id.toggleButtonThu);
+        ToggleButton toggleButtonFri = findViewById(R.id.toggleButtonFri);
+        ToggleButton toggleButtonSat = findViewById(R.id.toggleButtonSat);
+        ToggleButton toggleButtonSun = findViewById(R.id.toggleButtonSun);
+
+        // Update inputs based on alarm being edited
+        if (alarmId != -1) {
+            timePicker.setHour(alarmHour);
+            timePicker.setMinute(alarmMinute);
+            editTextNote.setText(alarmNote);
+            radioButtonYes.setChecked(alarmIsRepeatable);
+            radioButtonNo.setChecked(!alarmIsRepeatable);
+
+            if (alarmIsRepeatable) {
+                gridLayoutDaysOfWeek.setVisibility(View.VISIBLE);
+                textViewDaysOfWeek.setVisibility(View.VISIBLE);
+            }
+        }
 
         radioGroupRepeat.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -53,17 +87,6 @@ public class alarm_selection extends AppCompatActivity {
                 alarmDataSource.open(); // Open the database connection
 
                 // Save alarm
-                TimePicker timePicker = findViewById(R.id.timePicker);
-                EditText editTextNote = findViewById(R.id.editTextNote);
-                RadioButton radioButtonYes = findViewById(R.id.radioButtonYes);
-                ToggleButton toggleButtonMon = findViewById(R.id.toggleButtonMon);
-                ToggleButton toggleButtonTue = findViewById(R.id.toggleButtonTue);
-                ToggleButton toggleButtonWed = findViewById(R.id.toggleButtonWed);
-                ToggleButton toggleButtonThu = findViewById(R.id.toggleButtonThu);
-                ToggleButton toggleButtonFri = findViewById(R.id.toggleButtonFri);
-                ToggleButton toggleButtonSat = findViewById(R.id.toggleButtonSat);
-                ToggleButton toggleButtonSun = findViewById(R.id.toggleButtonSun);
-
                 int hour = timePicker.getHour();
                 int minute = timePicker.getMinute();
                 String note = editTextNote.getText().toString();
@@ -99,10 +122,14 @@ public class alarm_selection extends AppCompatActivity {
                         repeatDays.add(7);
                 }
 
-                // Insert
-                Alarm alarm = new Alarm(0, hour, minute, note, isRepeatable, repeatDays, isAM);
-                long id = alarmDataSource.createAlarm(alarm);
-                Log.d("Id", String.valueOf(id));
+                // Save alarm
+                if (alarmId == -1) { // Insert
+                    Alarm alarm = new Alarm(0, hour, minute, note, isRepeatable, repeatDays, isAM);
+                    long id = alarmDataSource.createAlarm(alarm);
+                    Log.d("Id", String.valueOf(id));
+                } else { // Edit
+                    alarmDataSource.updateAlarm(new Alarm(alarmId, hour, minute, note, isRepeatable, repeatDays, isAM));
+                }
 
                 // Close database connection
                 alarmDataSource.close();

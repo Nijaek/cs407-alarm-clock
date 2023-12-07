@@ -1,6 +1,7 @@
 package com.cs407.alarm_clock;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +46,15 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
         holder.buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO:
-                // Handle the edit button click for this alarm
-                // You can open an edit dialog or activity here
+                // Handle edit
+                Intent editIntent = new Intent(context, alarm_selection.class);
+                int hour = (alarm.isAM() || alarm.getHour() == 12) ? alarm.getHour() : alarm.getHour() + 12;
+                editIntent.putExtra("alarm_id", alarm.getId());
+                editIntent.putExtra("alarm_hour", hour);
+                editIntent.putExtra("alarm_minute", alarm.getMinute());
+                editIntent.putExtra("alarm_note", alarm.getNote());
+                editIntent.putExtra("alarm_repeatable", alarm.isRepeatable());
+                context.startActivity(editIntent);
             }
         });
 
