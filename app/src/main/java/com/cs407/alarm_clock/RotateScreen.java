@@ -59,6 +59,11 @@ public class RotateScreen extends AppCompatActivity {
         rightContent = options.get(1);
         leftContent = options.get(2);
 
+        topText.setText(topContent);
+        leftText.setText(leftContent);
+        rightText.setText(rightContent);
+        bottomText.setText(" ");
+
 
 
         OrientationEventListener mOrientationListener = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
@@ -119,7 +124,6 @@ public class RotateScreen extends AppCompatActivity {
                         goToResults("Incorrect\n" + question + " is\n" + answer);
                     }
                 }
-                goToMain();
             }
         });
         Button skipButton = (Button) findViewById(R.id.skipButton);
