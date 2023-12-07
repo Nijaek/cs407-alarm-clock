@@ -19,6 +19,16 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
         this.alarms = alarms;
     }
 
+    @Override
+    public int getItemCount() {
+        return alarms.size();
+    }
+
+    public void removeAlarm(int position) {
+        alarms.remove(position);
+        notifyItemRemoved(position);
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,16 +54,19 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
         holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO:
-                // Handle the delete button click for this alarm
-                // You can prompt the user for confirmation and then delete the alarm
+                // Handle delete
+                AlarmDataSource alarmDataSource = new AlarmDataSource(context);
+                alarmDataSource.open();
+                alarmDataSource.deleteAlarm(alarm.getId());
+                alarmDataSource.close();
+
+                // Update view holder
+                int position = holder.getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    removeAlarm(position);
+                }
             }
         });
-    }
-
-    @Override
-    public int getItemCount() {
-        return alarms.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
