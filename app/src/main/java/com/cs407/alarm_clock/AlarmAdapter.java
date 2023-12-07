@@ -25,9 +25,20 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
         return alarms.size();
     }
 
-    public void removeAlarm(int position) {
+    private void removeAlarm(int position) {
         alarms.remove(position);
         notifyItemRemoved(position);
+    }
+
+    private String convertListToString(List<Integer> list) {
+        StringBuilder builder = new StringBuilder();
+        for (Integer value : list) {
+            builder.append(value).append(",");
+        }
+        if (builder.length() > 0) {
+            builder.deleteCharAt(builder.length() - 1); // Remove the trailing comma
+        }
+        return builder.toString();
     }
 
     @NonNull
@@ -54,6 +65,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
                 editIntent.putExtra("alarm_minute", alarm.getMinute());
                 editIntent.putExtra("alarm_note", alarm.getNote());
                 editIntent.putExtra("alarm_repeatable", alarm.isRepeatable());
+                editIntent.putExtra("alarm_repeat_days", convertListToString(alarm.getRepeatDays()));
                 context.startActivity(editIntent);
             }
         });

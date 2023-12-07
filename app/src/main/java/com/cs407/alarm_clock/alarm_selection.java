@@ -34,6 +34,10 @@ public class alarm_selection extends AppCompatActivity {
         int alarmMinute = intent.getIntExtra("alarm_minute", -1);
         String alarmNote = intent.getStringExtra("alarm_note");
         Boolean alarmIsRepeatable = intent.getBooleanExtra("alarm_repeatable", false);
+        String alarmRepeatDays = intent.getStringExtra("alarm_repeat_days");
+
+        if (alarmRepeatDays != null)
+            Log.d("Days", alarmRepeatDays);
 
         // Interface functionality
         radioGroupRepeat = findViewById(R.id.radioGroupRepeat);
@@ -59,6 +63,21 @@ public class alarm_selection extends AppCompatActivity {
             editTextNote.setText(alarmNote);
             radioButtonYes.setChecked(alarmIsRepeatable);
             radioButtonNo.setChecked(!alarmIsRepeatable);
+
+            if (alarmRepeatDays.contains("1"))
+                toggleButtonMon.setChecked(true);
+            if (alarmRepeatDays.contains("2"))
+                toggleButtonTue.setChecked(true);
+            if (alarmRepeatDays.contains("3"))
+                toggleButtonWed.setChecked(true);
+            if (alarmRepeatDays.contains("4"))
+                toggleButtonThu.setChecked(true);
+            if (alarmRepeatDays.contains("5"))
+                toggleButtonFri.setChecked(true);
+            if (alarmRepeatDays.contains("6"))
+                toggleButtonSat.setChecked(true);
+            if (alarmRepeatDays.contains("7"))
+                toggleButtonSun.setChecked(true);
 
             if (alarmIsRepeatable) {
                 gridLayoutDaysOfWeek.setVisibility(View.VISIBLE);

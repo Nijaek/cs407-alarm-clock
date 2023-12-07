@@ -49,5 +49,7 @@ public class Alarm {
         return isAM;
     }
 
-    public String getTimeAsString() { return hour + ":" + minute + " " + (isAM ? "AM" : "PM"); }
+    public String getTimeAsString() { return hour + ":" +
+            (String.valueOf(minute).length() == 1 ? "0" + minute : minute) +
+            " " + (isAM ? "AM" : "PM"); }
 }
