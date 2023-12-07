@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -39,11 +40,11 @@ public class DragScreen extends AppCompatActivity {
         TextView option1 = (TextView) findViewById(R.id.answer1text);
         option1.setText(options.get(0));
         TextView option2 = (TextView) findViewById(R.id.answer2text);
-        option1.setText(options.get(1));
+        option2.setText(options.get(1));
         TextView option3 = (TextView) findViewById(R.id.answer3text);
-        option1.setText(options.get(2));
+        option3.setText(options.get(2));
         TextView option4 = (TextView) findViewById(R.id.answer4text);
-        option1.setText(options.get(3));
+        option4.setText(options.get(3));
 
         SeekBar seek1 = (SeekBar) findViewById(R.id.seek1);
         SeekBar seek2 = (SeekBar) findViewById(R.id.seek2);
@@ -143,6 +144,14 @@ public class DragScreen extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        Button skipButton = (Button) findViewById(R.id.skipButton);
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToResults("Skipped");
             }
         });
     }
