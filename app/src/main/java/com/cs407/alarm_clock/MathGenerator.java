@@ -169,7 +169,7 @@ public class MathGenerator extends AppCompatActivity {
     }
 
     public void goToPuzzle(String q, String ans, String f1, String f2, String f3) {
-        Intent intent = new Intent(this, DragScreen.class);
+        Intent intent = new Intent(this, RotateScreen.class);
         intent.putExtra("q", q);
         intent.putExtra("ans", ans);
         intent.putExtra("f1", f1);
