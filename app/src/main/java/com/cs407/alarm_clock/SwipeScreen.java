@@ -36,7 +36,7 @@ public class SwipeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe_screen);
 
-        TextView questionSpace = (TextView) findViewById(R.id.swipeQuestion);
+        TextView questionSpace = (TextView) findViewById(R.id.dragQuestion);
         Intent oldIntent = getIntent();
         String question = oldIntent.getStringExtra("q");
         questionSpace.setText(question);

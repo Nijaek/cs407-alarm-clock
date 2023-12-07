@@ -18,7 +18,7 @@ public class ButtonScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_screen);
 
-        TextView questionSpace = (TextView) findViewById(R.id.dragQuestion);
+        TextView questionSpace = (TextView) findViewById(R.id.buttonQuestion);
         Intent oldIntent = getIntent();
         String question = oldIntent.getStringExtra("q");
         questionSpace.setText(question);
