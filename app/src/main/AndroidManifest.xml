@@ -18,21 +18,27 @@
             android:exported="false" />
         <activity
             android:name=".DragScreen"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SwipeScreen"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SettingsScreen"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ShakeScreen"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ResultScreen"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ButtonScreen"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MathGenerator"
