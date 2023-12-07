@@ -1,5 +1,6 @@
 package com.cs407.alarm_clock;
 
+import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;

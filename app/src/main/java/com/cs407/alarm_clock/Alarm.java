@@ -1,22 +1,28 @@
 package com.cs407.alarm_clock;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class Alarm {
+    private long id;
     private int hour;
     private int minute;
-    private boolean isAM;
     private String note;
     private boolean isRepeatable;
     private List<Integer> repeatDays;
+    private boolean isAM;
 
-    public Alarm(int hour, int minute, boolean isAM, String note, boolean isRepeatable, List<Integer> repeatDays) {
+    public Alarm(long id, int hour, int minute, String note, boolean isRepeatable, List<Integer> repeatDays, boolean isAM) {
+        this.id = id;
         this.hour = hour;
         this.minute = minute;
-        this.isAM = isAM;
         this.note = note;
         this.isRepeatable = isRepeatable;
         this.repeatDays = repeatDays;
+        this.isAM = isAM;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public int getHour() {
@@ -42,4 +48,6 @@ public class Alarm {
     public boolean isAM() {
         return isAM;
     }
+
+    public String getTimeAsString() { return hour + ":" + minute + " " + (isAM ? "AM" : "PM"); }
 }
