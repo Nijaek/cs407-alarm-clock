@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonAlarm;
+    private Button buttonAlarm; //whee
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
