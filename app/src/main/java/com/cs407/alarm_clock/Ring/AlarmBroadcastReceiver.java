@@ -23,7 +23,7 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        String toastText = String.format("Alarm Received");
+        String toastText = "Alarm Received";
         Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
         if (!intent.getBooleanExtra(RECURRING, false)) {
             startAlarmService(context, intent);
