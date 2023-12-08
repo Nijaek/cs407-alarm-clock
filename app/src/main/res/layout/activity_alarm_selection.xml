@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Alarm Time:"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm Note:"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter note for the alarm"
+        android:inputType="text"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repeat Alarm:"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:checked="false"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:checked="true"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewDaysOfWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Days of the Week:"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/gridLayoutDaysOfWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone">
+
+        <ToggleButton
+            android:id="@+id/toggleButtonMon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="false"
+            android:text="Mon"
+            android:textOff="Mon"
+            android:textOn="Mon"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonTue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tue"
+            android:textOff="Tue"
+            android:textOn="Tue"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonWed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Wed"
+            android:textOff="Wed"
+            android:textOn="Wed"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thu"
+            android:textOff="Thu"
+            android:textOn="Thu"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonFri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fri"
+            android:textOff="Fri"
+            android:textOn="Fri"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonSat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sat"
+            android:textOff="Sat"
+            android:textOn="Sat"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonSun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sun"
+            android:textOff="Sun"
+            android:textOn="Sun"
+            android:textSize="12sp"
+            android:background="@drawable/toggle_button"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSaveAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Alarm" />
+
+</LinearLayout>
