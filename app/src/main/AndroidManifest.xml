@@ -18,6 +18,37 @@
         <activity
             android:name=".alarm_selection"
             android:exported="false" />
+                <activity
+            android:name=".RotateScreen"
+            android:configChanges="orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".DragScreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".SwipeScreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsScreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ShakeScreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ResultScreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".ButtonScreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".MathGenerator"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
