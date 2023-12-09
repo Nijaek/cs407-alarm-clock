@@ -190,7 +190,7 @@ public class MathGenerator extends AppCompatActivity {
             options.add("Rotate");
         }
         if(!slide) {
-            options.add("Drag");
+            options.add("Drag"); //
         }
         //shuffle the arraylist
         Collections.shuffle(options);
