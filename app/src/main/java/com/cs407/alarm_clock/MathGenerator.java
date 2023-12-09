@@ -186,10 +186,10 @@ public class MathGenerator extends AppCompatActivity {
         if(!swipe) {
             options.add("Swipe");
         }
-        if(rotate) {
+        if(!rotate) {
             options.add("Rotate");
         }
-        if(slide) {
+        if(!slide) {
             options.add("Drag");
         }
         //shuffle the arraylist
