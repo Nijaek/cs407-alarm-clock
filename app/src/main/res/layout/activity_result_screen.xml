@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/resultView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:gravity="center"
         android:text="TextView"
         android:textSize="34sp" />
@@ -21,5 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next" />
+
+    <TextView
+        android:id="@+id/questionsLeft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text="Questions Left:" />
 
 </LinearLayout>
