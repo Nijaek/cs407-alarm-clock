@@ -68,5 +68,8 @@ import androidx.appcompat.app.AppCompatActivity;
             String falseAnswerC = falseAnswerCEditText.getText().toString();
 
         }
+
+        public int getQuestionText() {
+        }
     }
 
