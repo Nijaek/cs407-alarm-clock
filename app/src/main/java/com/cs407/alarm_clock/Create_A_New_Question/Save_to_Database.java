@@ -60,7 +60,7 @@ private void loadQuestion() {
         radioButton.setText(answer);
         answersRadioGroup.addView(radioButton);
         }
-        }
+   }
 
 private void saveAnswer(Creation_of_A_New_Question question, String answer) {
         // Here you would implement the logic to save the answer to the database
