@@ -17,7 +17,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class SettingsScreen extends AppCompatActivity {
+public class SettingsScreen extends ToolbarActivity {
     String[] item = {"Math"}; //Need a function to read in other Question types
     AutoCompleteTextView autoCompleteTextview;
     ArrayAdapter<String> adapterItems;
@@ -138,7 +138,7 @@ public class SettingsScreen extends AppCompatActivity {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
     }
     public void goToMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, alarm_overview.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

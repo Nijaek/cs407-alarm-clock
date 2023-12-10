@@ -1,38 +1,20 @@
 package com.cs407.alarm_clock;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.content.Intent;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
-import androidx.appcompat.widget.Toolbar;
-
-public class MainActivity extends AppCompatActivity {
-    private Button buttonAlarm;
-
+import android.view.MenuItem;
+public class ToolbarActivity extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
 
         // Set up the Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // Set-up button
-        buttonAlarm = findViewById(R.id.buttonAlarm);
-        buttonAlarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, alarm_overview.class);
-
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -48,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (itemId == R.id.action_my_alarms) {
             // Handle My Alarms
-            startActivity(new Intent(this, alarm_selection.class));
+            startActivity(new Intent(this, alarm_overview.class));
             return true;
         } else if (itemId == R.id.action_create_question) {
             // Handle Create a Question
