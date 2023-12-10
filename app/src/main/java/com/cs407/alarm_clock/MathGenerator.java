@@ -20,6 +20,7 @@ public class MathGenerator extends AppCompatActivity {
 
     public int answer;
     public String question;
+    int mathOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,18 @@ public class MathGenerator extends AppCompatActivity {
 
         Random r = new Random();
         //use a random int to choose the type of math problem
-        int mathOptions = r.nextInt(5);
+        //mathDifficulty
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        int diff = sharedPreferences.getInt("mathDifficulty", 0);
+        if(diff == 0) {
+            mathOptions = r.nextInt(3);
+        } else if (diff == 1) {
+            mathOptions = 4;
+        } else if(diff == 2) {
+            mathOptions = r.nextInt(2) + 3;
+        }else {
+            mathOptions = r.nextInt(5);
+        }
         //Change the range to account for difficulties
 
         if(mathOptions == 0) {

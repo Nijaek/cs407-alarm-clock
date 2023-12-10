@@ -18,7 +18,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 public class SettingsScreen extends AppCompatActivity {
-    String[] item = {"Math"}; //Need a function to read in other Question types
+    String[] item = {"Math", "Custom"}; //Need a function to read in other Question types
     AutoCompleteTextView autoCompleteTextview;
     ArrayAdapter<String> adapterItems;
     SharedPreferences sharedPreferences;

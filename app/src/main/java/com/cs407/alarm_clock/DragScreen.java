@@ -154,6 +154,14 @@ public class DragScreen extends AppCompatActivity {
                 goToResults("Skipped");
             }
         });
+
+        Button switchButton = (Button) findViewById(R.id.switchButton);
+        switchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToShake();
+            }
+        });
     }
     public void makeToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -162,6 +170,11 @@ public class DragScreen extends AppCompatActivity {
     public void goToResults(String result) {
         Intent intent = new Intent(this, ResultScreen.class);
         intent.putExtra("result", result);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+    public void goToShake() {
+        Intent intent = new Intent(this, ShakeScreen.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
