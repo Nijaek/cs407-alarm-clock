@@ -30,7 +30,7 @@ public class ToolbarActivity extends AppCompatActivity {
 
         if (itemId == R.id.action_my_alarms) {
             // Handle My Alarms
-            startActivity(new Intent(this, alarm_overview.class));
+            startActivity(new Intent(this, AlarmOverview.class));
             return true;
         } else if (itemId == R.id.action_puzzles) {
             // Handle Puzzles
@@ -38,6 +38,7 @@ public class ToolbarActivity extends AppCompatActivity {
             return true;
         } else if (itemId == R.id.action_create_question) {
             // Handle Create a Question
+            startActivity(new Intent(this, CustomQuestion.class));
             return true;
         } else if (itemId == R.id.action_settings) {
             // Handle Settings

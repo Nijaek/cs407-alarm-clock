@@ -1,8 +1,7 @@
 package com.cs407.alarm_clock;
 
-import android.util.Log;
 import java.util.List;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
@@ -10,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class alarm_overview extends ToolbarActivity {
+public class AlarmOverview extends ToolbarActivity {
     private Button buttonNewAlarm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,7 @@ public class alarm_overview extends ToolbarActivity {
 
         // Get alarms
         List<Alarm> alarms;
-        AlarmDataSource alarmDataSource = new AlarmDataSource(alarm_overview.this);
+        AlarmDataSource alarmDataSource = new AlarmDataSource(AlarmOverview.this);
         alarmDataSource.open();
         alarms = alarmDataSource.getAllAlarms();
         alarmDataSource.close();
@@ -36,7 +35,7 @@ public class alarm_overview extends ToolbarActivity {
         buttonNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(alarm_overview.this, alarm_selection.class);
+                Intent intent = new Intent(AlarmOverview.this, AlarmSelection.class);
                 startActivity(intent);
             }
         });

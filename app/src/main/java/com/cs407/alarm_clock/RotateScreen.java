@@ -136,7 +136,7 @@ public class RotateScreen extends AppCompatActivity {
     }
 
     public void goToMain() {
-        Intent intent = new Intent(this, alarm_overview.class);
+        Intent intent = new Intent(this, AlarmOverview.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
