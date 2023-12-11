@@ -80,6 +80,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
         public int getQuestionText() {
 
+            return 0;
+        }
     }
 
 
