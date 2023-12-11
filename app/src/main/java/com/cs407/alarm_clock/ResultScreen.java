@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ResultScreen extends AppCompatActivity {
+public class ResultScreen extends ToolbarActivity {
     int updatedNumQuest;
 
     @Override

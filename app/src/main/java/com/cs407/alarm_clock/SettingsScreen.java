@@ -17,7 +17,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class SettingsScreen extends AppCompatActivity {
+public class SettingsScreen extends ToolbarActivity {
     String[] item = {"Math", "Custom"}; //Need a function to read in other Question types
     AutoCompleteTextView autoCompleteTextview;
     ArrayAdapter<String> adapterItems;
