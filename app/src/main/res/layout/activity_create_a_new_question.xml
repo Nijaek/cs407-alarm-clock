@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Creation_of_A_New_Question">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="DEFINE THE PUZZLE"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="QUESTION"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/right_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="RIGHT ANSWER"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/false_answer_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="FALSE ANSWER A"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/false_answer_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="FALSE ANSWER B"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/false_answer_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="FALSE ANSWER C"
+            android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="270dp" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CANCEL" />
+
+        <Button
+            android:id="@+id/return_menu_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="RETURN TO MENU" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

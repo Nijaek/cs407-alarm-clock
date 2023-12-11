@@ -133,10 +133,18 @@ public class RotateScreen extends AppCompatActivity {
                 goToResults("Skipped");
             }
         });
+
+        Button switchButton = (Button) findViewById(R.id.switchButton);
+        switchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToShake();
+            }
+        });
     }
 
     public void goToMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, alarm_overview.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
@@ -172,6 +180,11 @@ public class RotateScreen extends AppCompatActivity {
     public void goToResults(String result) {
         Intent intent = new Intent(this, ResultScreen.class);
         intent.putExtra("result", result);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+    public void goToShake() {
+        Intent intent = new Intent(this, ShakeScreen.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
