@@ -58,7 +58,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
             @Override
             public void onClick(View v) {
                 // Handle edit
-                Intent editIntent = new Intent(context, alarm_selection.class);
+                Intent editIntent = new Intent(context, AlarmSelection.class);
                 int hour = (alarm.isAM() || alarm.getHour() == 12) ? alarm.getHour() : alarm.getHour() + 12;
                 editIntent.putExtra("alarm_id", alarm.getId());
                 editIntent.putExtra("alarm_hour", hour);

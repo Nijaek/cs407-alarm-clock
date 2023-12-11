@@ -24,10 +24,13 @@
             android:name=".puzzleLooper"
             android:exported="false" />
         <activity
+            android:name=".CustomQuestion"
+            android:exported="false" />
+        <activity
             android:name=".puzzleInitialize"
             android:exported="false" />
         <activity
-            android:name=".alarm_overview"
+            android:name=".AlarmOverview"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".alarm_selection"
+            android:name=".AlarmSelection"
             android:exported="false" />
         <activity
             android:name=".RotateScreen"
