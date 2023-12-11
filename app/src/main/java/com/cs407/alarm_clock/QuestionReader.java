@@ -1,5 +1,6 @@
 package com.cs407.alarm_clock;
 
+import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +26,8 @@ public class QuestionReader extends AppCompatActivity {
         questionDataSource.close();
 
         // Navigate
-        goToPuzzle(q.getQuestion(), q.getAnswer(), q.getFalse1(), q.getFalse2(), q.getFalse3());
+        if (q != null)
+            goToPuzzle(q.getQuestion(), q.getAnswer(), q.getFalse1(), q.getFalse2(), q.getFalse3());
     }
 
     public void goToPuzzle(String q, String ans, String f1, String f2, String f3) {
