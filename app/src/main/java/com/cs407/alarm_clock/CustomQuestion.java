@@ -25,13 +25,6 @@ public class CustomQuestion extends ToolbarActivity {
         falseAnswerBEditText = findViewById(R.id.false_answer_b);
         falseAnswerCEditText = findViewById(R.id.false_answer_c);
 
-        // Strings
-        String question = questionEditText.getText().toString();
-        String rightAnswer = rightAnswerEditText.getText().toString();
-        String falseAnswerA = falseAnswerAEditText.getText().toString();
-        String falseAnswerB = falseAnswerBEditText.getText().toString();
-        String falseAnswerC = falseAnswerCEditText.getText().toString();
-
         // Initialize Buttons
         saveButton = findViewById(R.id.save_button);
         cancelButton = findViewById(R.id.cancel_button);
@@ -44,10 +37,17 @@ public class CustomQuestion extends ToolbarActivity {
                 QuestionDataSource questionDataSource = new QuestionDataSource(CustomQuestion.this);
                 questionDataSource.open();
 
+                // Strings
+                String question = questionEditText.getText().toString();
+                String rightAnswer = rightAnswerEditText.getText().toString();
+                String falseAnswerA = falseAnswerAEditText.getText().toString();
+                String falseAnswerB = falseAnswerBEditText.getText().toString();
+                String falseAnswerC = falseAnswerCEditText.getText().toString();
+
                 // Save question
                 QuestionObject questionObj = new QuestionObject(0, question, rightAnswer, falseAnswerA, falseAnswerB, falseAnswerC);
                 long id = questionDataSource.createQuestion(questionObj);
-
+                Log.d("Q", questionObj.getQuestion());
                 // Release memory
                 questionDataSource.close();
 

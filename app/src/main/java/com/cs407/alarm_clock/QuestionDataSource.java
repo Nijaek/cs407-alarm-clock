@@ -1,5 +1,6 @@
 package com.cs407.alarm_clock;
 
+import android.util.Log;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -117,4 +118,5 @@ public class QuestionDataSource {
 
         return new QuestionObject(id, questionText, answer, false1, false2, false3);
     }
+
 }
