@@ -74,7 +74,7 @@ public class CustomQuestion extends ToolbarActivity {
 
     private void showConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Question created");
+        builder.setTitle("Success");
         builder.setMessage("Your question has been saved successfully.");
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
