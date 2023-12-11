@@ -58,6 +58,11 @@ public class QuestionDataSource {
         database.delete(QuestionDbHelper.TABLE_QUESTIONS, whereClause, whereArgs);
     }
 
+    public void deleteAllQuestions() {
+        database.delete(QuestionDbHelper.TABLE_QUESTIONS, null, null);
+    }
+
+
     public List<QuestionObject> getAllQuestions() {
         List<QuestionObject> questions = new ArrayList<>();
         Cursor cursor = database.query(QuestionDbHelper.TABLE_QUESTIONS, null, null, null, null, null, null);
