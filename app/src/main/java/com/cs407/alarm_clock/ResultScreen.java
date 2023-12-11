@@ -20,6 +20,7 @@ public class ResultScreen extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_screen);
 
+
         TextView resultView = (TextView) findViewById(R.id.resultView);
         Intent oldIntent = getIntent();
         String result = oldIntent.getStringExtra("result");
@@ -39,6 +40,7 @@ public class ResultScreen extends ToolbarActivity {
         if(updatedNumQuest == 0) {
             result = "CONGRATULATIONS";
             resultView.setText(result);
+            sharedPreferences.edit().putBoolean("alarmActive", false).apply();
         }
 
         if(result.equals("Correct")) {

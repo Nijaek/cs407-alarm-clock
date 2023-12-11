@@ -27,6 +27,12 @@ public class SettingsScreen extends ToolbarActivity {
         setContentView(R.layout.activity_settings_screen);
         loadSharedPref();
 
+        boolean activeAlarm = sharedPreferences.getBoolean("alarmActive", false);
+
+        if(activeAlarm) {
+            setContentView(R.layout.activity_settings_screen_mid_puzzle);
+        }
+
         EditText questionNumInput = (EditText) findViewById(R.id.questionNumberInput);
 
         autoCompleteTextview = findViewById(R.id.auto_complete_txt);
@@ -83,9 +89,11 @@ public class SettingsScreen extends ToolbarActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    int numQuest = Integer.parseInt(questionNumInput.getText().toString());
-                    sharedPreferences.edit().putInt("questionAmount", numQuest).apply();
-                    goToMain();
+                    if(!activeAlarm) {
+                        int numQuest = Integer.parseInt(questionNumInput.getText().toString());
+                        sharedPreferences.edit().putInt("questionAmount", numQuest).apply();
+                        goToMain();
+                    }
                 } catch(NumberFormatException er){
                     makeToast("Invalid Question Number");
                 }
