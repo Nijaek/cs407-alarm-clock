@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ToggleButton;
 
-public class alarm_selection extends AppCompatActivity {
+public class AlarmSelection extends AppCompatActivity {
     private Button buttonSaveAlarm;
     private RadioGroup radioGroupRepeat;
     private LinearLayout gridLayoutDaysOfWeek;
@@ -35,9 +35,6 @@ public class alarm_selection extends AppCompatActivity {
         String alarmNote = intent.getStringExtra("alarm_note");
         Boolean alarmIsRepeatable = intent.getBooleanExtra("alarm_repeatable", false);
         String alarmRepeatDays = intent.getStringExtra("alarm_repeat_days");
-
-        if (alarmRepeatDays != null)
-            Log.d("Days", alarmRepeatDays);
 
         // Interface functionality
         radioGroupRepeat = findViewById(R.id.radioGroupRepeat);
@@ -102,7 +99,7 @@ public class alarm_selection extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open database connection
-                AlarmDataSource alarmDataSource = new AlarmDataSource(alarm_selection.this);
+                AlarmDataSource alarmDataSource = new AlarmDataSource(AlarmSelection.this);
                 alarmDataSource.open(); // Open the database connection
 
                 // Save alarm
@@ -154,7 +151,7 @@ public class alarm_selection extends AppCompatActivity {
                 alarmDataSource.close();
 
                 // Return to alarm overview
-                Intent intent = new Intent(alarm_selection.this, alarm_overview.class);
+                Intent intent = new Intent(AlarmSelection.this, AlarmOverview.class);
                 startActivity(intent);
             }
         });
