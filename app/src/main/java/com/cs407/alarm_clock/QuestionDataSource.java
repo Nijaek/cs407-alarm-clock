@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class QuestionDataSource {
     private SQLiteDatabase database;
@@ -71,6 +71,33 @@ public class QuestionDataSource {
         }
 
         return questions;
+    }
+
+    public QuestionObject getRandomQuestion() {
+        // Retrieve the count of questions in the database
+        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + QuestionDbHelper.TABLE_QUESTIONS, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+
+        if (count == 0) {
+            return null; // Return null if there are no questions in the database
+        }
+
+        // Generate a random index within the range of available questions
+        Random random = new Random();
+        int randomIndex = random.nextInt(count);
+
+        // Retrieve a random question from the database
+        cursor = database.rawQuery("SELECT * FROM " + QuestionDbHelper.TABLE_QUESTIONS + " LIMIT 1 OFFSET " + randomIndex, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            QuestionObject randomQuestion = cursorToQuestion(cursor);
+            cursor.close();
+            return randomQuestion;
+        } else {
+            return null; // Return null if there was an issue retrieving the random question
+        }
     }
 
     private QuestionObject cursorToQuestion(Cursor cursor) {

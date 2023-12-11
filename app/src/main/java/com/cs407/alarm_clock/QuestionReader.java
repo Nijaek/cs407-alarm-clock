@@ -1,22 +1,33 @@
 package com.cs407.alarm_clock;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class QuestionReader extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_reader);
+
+        // Open connection
+        QuestionDataSource questionDataSource = new QuestionDataSource(this);
+        questionDataSource.open();
+
+        // Generate random problem
+        QuestionObject q = questionDataSource.getRandomQuestion();
+
+        // Close connection
+        questionDataSource.close();
+
+        // Navigate
+        goToPuzzle(q.getQuestion(), q.getAnswer(), q.getFalse1(), q.getFalse2(), q.getFalse3());
     }
+
     public void goToPuzzle(String q, String ans, String f1, String f2, String f3) {
         SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         ArrayList<String> options = new ArrayList<String>();
