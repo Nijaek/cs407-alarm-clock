@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".ResultScreen">
 
+    <include layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/resultView"
         android:layout_width="match_parent"
