@@ -5,6 +5,10 @@
         android:title="My Alarms"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_puzzles"
+        android:title="Puzzles"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_create_question"
         android:title="Create a Question"
         app:showAsAction="never" />

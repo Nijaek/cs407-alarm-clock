@@ -32,6 +32,10 @@ public class ToolbarActivity extends AppCompatActivity {
             // Handle My Alarms
             startActivity(new Intent(this, alarm_overview.class));
             return true;
+        } else if (itemId == R.id.action_puzzles) {
+            // Handle Puzzles
+            startActivity(new Intent(this, puzzleInitialize.class));
+            return true;
         } else if (itemId == R.id.action_create_question) {
             // Handle Create a Question
             return true;
