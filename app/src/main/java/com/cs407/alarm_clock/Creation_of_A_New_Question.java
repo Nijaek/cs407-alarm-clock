@@ -6,13 +6,6 @@ import android.widget.EditText;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
-
-
     public class Creation_of_A_New_Question extends AppCompatActivity {
         private EditText questionEditText, rightAnswerEditText, falseAnswerAEditText, falseAnswerBEditText, falseAnswerCEditText;
         private Button saveButton, cancelButton, returnMenuButton;
