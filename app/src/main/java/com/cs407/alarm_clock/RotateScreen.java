@@ -62,7 +62,7 @@ public class RotateScreen extends AppCompatActivity {
         topText.setText(topContent);
         leftText.setText(leftContent);
         rightText.setText(rightContent);
-        bottomText.setText(" ");
+        bottomText.setText("Rotate Your Screen");
 
 
 
