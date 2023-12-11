@@ -19,6 +19,10 @@ public class puzzleInitialize extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         int numQuest = sharedPreferences.getInt("questionAmount", 10);
         sharedPreferences.edit().putInt("currentNumQuest", numQuest).apply();
+
+        boolean alarmActive = true;
+        sharedPreferences.edit().putBoolean("alarmActive", alarmActive).apply();
+
         Intent intent = new Intent(this, puzzleLooper.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
