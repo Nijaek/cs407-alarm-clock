@@ -80,7 +80,7 @@ public class Save_to_Database extends AppCompatActivity {
                 // Implement logic to save the question and answers
                 // Validate inputs before saving
                 if (validateInputs()) {
-                        // Assuming your Creation_of_A_New_Question model has a method to set question and answers
+                        // Assuming Creation_of_A_New_Question model has a method to set question and answers
                         currentQuestion.setQuestionText(questionEditText.getText().toString());
                         currentQuestion.setRightAnswer(rightAnswerEditText.getText().toString());
                         currentQuestion.setFalseAnswers(new String[]{
@@ -89,7 +89,7 @@ public class Save_to_Database extends AppCompatActivity {
                                 falseAnswerCEditText.getText().toString()
                         });
 
-                        // Your DatabaseHelper should have a method to insert or update a question
+                        // DatabaseHelper should have a method to insert or update a question
                         DatabaseHelper dbHelper = new DatabaseHelper(this);
                         boolean isSaved = dbHelper.saveQuestion(currentQuestion);
                         if (isSaved) {
