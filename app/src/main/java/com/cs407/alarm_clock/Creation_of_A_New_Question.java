@@ -69,11 +69,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
         }
 
-        public int getQuestionText() {
-<<<<<<< HEAD
-            return 0;
-=======
->>>>>>> a282e187620e963eed6c27d8c52fef0b995b752b
+        public void setQuestionText(String toString) {
         }
+
+        public void setRightAnswer(String toString) {
+        }
+
+        public void setFalseAnswers(String[] strings) {
+        }
+
+        public int getQuestionText() {
+
     }
+
 
