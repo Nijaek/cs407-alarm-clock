@@ -28,7 +28,13 @@
             android:exported="false" />
         <activity
             android:name=".alarm_overview"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".alarm_selection"
             android:exported="false" />
@@ -63,15 +69,6 @@
         <activity
             android:name=".MathGenerator"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".RingActivity" />
 
         <receiver

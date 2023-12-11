@@ -1,3 +1,4 @@
+/*
 package com.cs407.alarm_clock.Ring;
 
 import android.app.AlarmManager;
@@ -58,3 +59,5 @@ public class ScheduleAlarm {
                 }
             }
         }
+
+ */
