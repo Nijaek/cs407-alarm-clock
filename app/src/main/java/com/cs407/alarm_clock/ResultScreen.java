@@ -29,7 +29,6 @@ public class ResultScreen extends ToolbarActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         int numQuest = sharedPreferences.getInt("currentNumQuest", 10);
-        sharedPreferences.edit().putBoolean("alarmActive", false).apply();
 
         if(result.equals("Correct")) {
             updatedNumQuest = numQuest - 1;
@@ -41,6 +40,7 @@ public class ResultScreen extends ToolbarActivity {
         if(updatedNumQuest == 0) {
             result = "CONGRATULATIONS";
             resultView.setText(result);
+            sharedPreferences.edit().putBoolean("alarmActive", false).apply();
         }
 
         if(result.equals("Correct")) {
