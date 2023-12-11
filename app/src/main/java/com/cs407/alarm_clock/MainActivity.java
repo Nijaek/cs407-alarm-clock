@@ -19,7 +19,17 @@ public class MainActivity extends AppCompatActivity {
         buttonAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, alarm_overview.class);
+                Intent intent = new Intent(MainActivity.this, puzzleInitialize.class);
+
+                startActivity(intent);
+            }
+        });
+
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsScreen.class);
 
                 startActivity(intent);
             }

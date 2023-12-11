@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -65,7 +66,11 @@ public class ShakeScreen extends AppCompatActivity {
     }
 
     public void goToMain() {
-        Intent intent = new Intent(this, MathGenerator.class);
+        SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        sharedPreferences.edit().putInt("currentNumQuest", 0).apply();
+
+        Intent intent = new Intent(this, ResultScreen.class);
+        intent.putExtra("result", "Congrats!");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
