@@ -53,6 +53,8 @@ public class ResultScreen extends AppCompatActivity {
         } else if(result.equals("CONGRATULATIONS")) {
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.congrats);
             mp.start();
+        } else if(result.equals("Skipped")){
+            //do nothing
         } else {
             MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.wrong);
             mp.start();
@@ -80,7 +82,7 @@ public class ResultScreen extends AppCompatActivity {
         startActivity(intent);
     }
     public void exit() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, alarm_overview.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
