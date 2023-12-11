@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -21,39 +21,45 @@
         android:theme="@style/Theme.Alarm_clock"
         tools:targetApi="31">
         <activity
+            android:name=".puzzleLooper"
+            android:exported="false" />
+        <activity
+            android:name=".puzzleInitialize"
+            android:exported="false" />
+        <activity
             android:name=".alarm_overview"
             android:exported="false" />
         <activity
             android:name=".alarm_selection"
             android:exported="false" />
-                <activity
+        <activity
             android:name=".RotateScreen"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
             android:name=".DragScreen"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SwipeScreen"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsScreen"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ShakeScreen"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ResultScreen"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ButtonScreen"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MathGenerator"
             android:exported="false" />
@@ -66,14 +72,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.cs407.alarm_clock.RingActivity" />
+        <activity android:name=".RingActivity" />
 
-        <receiver android:name="com.cs407.alarm_clock.Ring.AlarmBroadcastReceiver" android:exported="true"
+        <receiver
+            android:name=".Ring.AlarmBroadcastReceiver"
             android:enabled="true"
-            />
-        <receiver android:name="com.cs407.alarm_clock.AlarmReceiver" />
+            android:exported="true" />
+        <receiver android:name=".AlarmReceiver" />
 
-        <service android:name="com.cs407.alarm_clock.Ring.RingService" />
+        <service android:name=".Ring.RingService" />
     </application>
 
 </manifest>
