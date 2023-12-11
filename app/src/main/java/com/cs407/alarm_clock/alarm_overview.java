@@ -10,8 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class alarm_overview extends ToolbarActivity {
+public class alarm_overview extends AppCompatActivity {
     private Button buttonNewAlarm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
