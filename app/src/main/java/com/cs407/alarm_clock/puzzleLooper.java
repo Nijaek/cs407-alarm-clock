@@ -23,6 +23,9 @@ public class puzzleLooper extends AppCompatActivity {
             startActivity(intent);
         } else {
             //insert custom question reader here.
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
 
         }
     }
