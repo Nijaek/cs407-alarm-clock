@@ -20,6 +20,7 @@ public class ResultScreen extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_screen);
 
+
         TextView resultView = (TextView) findViewById(R.id.resultView);
         Intent oldIntent = getIntent();
         String result = oldIntent.getStringExtra("result");
@@ -28,6 +29,7 @@ public class ResultScreen extends ToolbarActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
         int numQuest = sharedPreferences.getInt("currentNumQuest", 10);
+        sharedPreferences.edit().putBoolean("alarmActive", false).apply();
 
         if(result.equals("Correct")) {
             updatedNumQuest = numQuest - 1;
