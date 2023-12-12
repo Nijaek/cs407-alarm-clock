@@ -21,6 +21,7 @@
         android:theme="@style/Theme.Alarm_clock"
         tools:targetApi="31">
         <activity
+<<<<<<< Updated upstream
             android:name=".QuestionReader"
             android:exported="false" />
         <activity
@@ -34,6 +35,12 @@
             android:exported="false" />
         <activity
             android:name=".AlarmOverview"
+=======
+            android:name=".AlarmSelection"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+>>>>>>> Stashed changes
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

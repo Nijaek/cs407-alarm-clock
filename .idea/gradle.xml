@@ -14,7 +14,10 @@
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
+<<<<<<< Updated upstream
         <option name="resolveExternalAnnotations" value="false" />
+=======
+>>>>>>> Stashed changes
       </GradleProjectSettings>
     </option>
   </component>
