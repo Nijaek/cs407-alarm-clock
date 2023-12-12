@@ -1,6 +1,5 @@
 package com.cs407.alarm_clock;
 
-<<<<<<< Updated upstream
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +21,10 @@ public class AlarmSelection extends AppCompatActivity {
     private RadioGroup radioGroupRepeat;
     private LinearLayout gridLayoutDaysOfWeek;
     private TextView textViewDaysOfWeek;
-=======
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-public class AlarmSelection extends AppCompatActivity {
->>>>>>> Stashed changes
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_selection);
-<<<<<<< Updated upstream
 
         // Extract intents
         Intent intent = getIntent();
@@ -164,7 +154,5 @@ public class AlarmSelection extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-=======
->>>>>>> Stashed changes
     }
 }
