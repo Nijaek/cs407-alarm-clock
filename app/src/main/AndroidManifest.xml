@@ -10,6 +10,15 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -84,6 +93,28 @@
         <receiver android:name=".AlarmReceiver" />
 
         <service android:name=".Ring.RingService" />
+
+        <!--keep this APP alive. -->
+        <service
+            android:name=".server.KeepAliveWallpaperServer"
+            android:exported="true"
+            android:label="set screen override"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper" />
+        </service>
+
+        <!--LOCK Screen.-->
+        <service
+            android:name=".server.LockServer"
+            android:exported="true"
+            tools:ignore="ExportedService" />
+
     </application>
 
 </manifest>
