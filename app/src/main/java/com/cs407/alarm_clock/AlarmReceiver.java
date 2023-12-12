@@ -9,7 +9,7 @@ import com.cs407.alarm_clock.Ring.RingService;
 import com.cs407.alarm_clock.server.LockServer;
 import com.cs407.alarm_clock.utils.ScreenTool;
 
-// 定义广播接收者
+// define receiver
 public class AlarmReceiver extends BroadcastReceiver {
 
     private static final String TAG = "AlarmReceiver";

@@ -43,7 +43,7 @@ public class AlarmOverview extends ToolbarActivity {
         AlarmAdapter adapter = new AlarmAdapter(this, alarms);
         recyclerView.setAdapter(adapter);
 
-        // 启动锁屏服务
+        // activate the lock screen service
         startService(new Intent(AlarmOverview.this, LockServer.class));
 
         // Handle new button click
@@ -51,7 +51,7 @@ public class AlarmOverview extends ToolbarActivity {
         buttonNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 这里判断暂时用临时变量判断
+                // tmp
                 if (!isRunWallpaper){
                     isRunWallpaper = true;
                     KeepAliveWallpaperServer.setKeepAliveWallpaper(AlarmOverview.this);

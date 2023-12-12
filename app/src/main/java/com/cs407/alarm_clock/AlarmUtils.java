@@ -17,7 +17,7 @@ public class AlarmUtils {
 
     private static final String TAG = "AlarmUtils";
 
-    // 添加非重复闹钟
+    // add non-repeating alarm
     public static void addSingleAlarm(Context context, String time, Bundle bundle) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -37,13 +37,13 @@ public class AlarmUtils {
         } else {
             pendingIntent = PendingIntent.getBroadcast(context,  bundle.getInt("noticeId"), intent, PendingIntent.FLAG_ONE_SHOT);
         }
-        // 获取AlarmManager
+        // get AlarmManager
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        // 设置非重复闹钟
+        // set non-repeating alarm
         alarmManager.set(AlarmManager.RTC_WAKEUP, timestamp, pendingIntent);
 
-        Log.d(TAG, "addSingleAlarm: 非重复闹钟已设置");
+        Log.d(TAG, "addSingleAlarm: non-repeating alarm set");
     }
     public static void addSingleAlarm(Context context, long time, Bundle bundle) {
         // 创建Intent
@@ -55,18 +55,18 @@ public class AlarmUtils {
         } else {
             pendingIntent = PendingIntent.getBroadcast(context,  bundle.getInt("id"), intent, PendingIntent.FLAG_ONE_SHOT);
         }
-        // 获取AlarmManager
+        // get AlarmManager
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        // 设置非重复闹钟
+        // set non-repeating alarm
         alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
 
-        Log.d(TAG, "addSingleAlarm: 非重复闹钟已设置");
+        Log.d(TAG, "addSingleAlarm: non-repeating alarm set");
     }
 
-    // 取消闹钟
+    // cancel
     public static void cancelAlarm(Context context, int requestCode) {
-        // 创建Intent
+        // create Intent
         Intent intent = new Intent(context, AlarmReceiver.class);
         PendingIntent pendingIntent ;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
@@ -75,13 +75,13 @@ public class AlarmUtils {
             pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, PendingIntent.FLAG_ONE_SHOT);
         }
 
-        // 获取AlarmManager
+        // get AlarmManager
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        // 取消闹钟
+        // cancel alarm
         alarmManager.cancel(pendingIntent);
 
-        Log.d(TAG, "cancelAlarm: 闹钟已取消");
+        Log.d(TAG, "cancelAlarm: alarm canceled");
     }
 
 
