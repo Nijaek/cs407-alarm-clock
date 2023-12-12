@@ -2,6 +2,7 @@ package com.cs407.alarm_clock;
 
 import android.util.Log;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -15,6 +16,8 @@ import android.widget.TimePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ToggleButton;
+
+import com.cs407.alarm_clock.server.KeepAliveWallpaperServer;
 
 public class AlarmSelection extends AppCompatActivity {
     private Button buttonSaveAlarm;
@@ -101,6 +104,8 @@ public class AlarmSelection extends AppCompatActivity {
                 AlarmDataSource alarmDataSource = new AlarmDataSource(AlarmSelection.this);
                 alarmDataSource.open(); // Open the database connection
 
+                Calendar instance = Calendar.getInstance();
+
                 // Save alarm
                 int hour = timePicker.getHour();
                 int minute = timePicker.getMinute();
@@ -108,6 +113,9 @@ public class AlarmSelection extends AppCompatActivity {
                 boolean isRepeatable = radioButtonYes.isChecked();
                 List<Integer> repeatDays = new ArrayList<>();
                 boolean isAM;
+
+                instance.set(Calendar.HOUR_OF_DAY, hour);
+                instance.set(Calendar.MINUTE, minute);
 
                 // Update hour, isAM
                 if (hour >= 0 && hour < 12) {
@@ -141,6 +149,10 @@ public class AlarmSelection extends AppCompatActivity {
                 if (alarmId == -1) { // Insert
                     Alarm alarm = new Alarm(0, hour, minute, note, isRepeatable, repeatDays, isAM);
                     long id = alarmDataSource.createAlarm(alarm);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("TITLE", note);
+                    bundle.putInt("id", (int) id);
+                    AlarmUtils.addSingleAlarm(AlarmSelection.this, instance.getTimeInMillis(), bundle);
                     Log.d("Id", String.valueOf(id));
                 } else { // Edit
                     alarmDataSource.updateAlarm(new Alarm(alarmId, hour, minute, note, isRepeatable, repeatDays, isAM));

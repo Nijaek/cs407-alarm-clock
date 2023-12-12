@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.cs407.alarm_clock.Ring.RingService;
+import com.cs407.alarm_clock.server.LockServer;
+import com.cs407.alarm_clock.utils.ScreenTool;
 
 // 定义广播接收者
 public class AlarmReceiver extends BroadcastReceiver {
@@ -26,9 +28,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         intentService.putExtra("TITLE", intent.getStringExtra("TITLE"));
         context.startForegroundService(intentService);
 
-        Intent intent1 = new Intent(context, RingActivity.class);
-        intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent1.putExtra("TITLE", intent.getStringExtra("TITLE"));
-        context.startActivity(intent1);
+        LockServer.showLock();
+
+//        Intent intent1 = new Intent(context, RingActivity.class);
+//        intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent1.putExtra("TITLE", intent.getStringExtra("TITLE"));
+//        context.startActivity(intent1);
     }
 }
