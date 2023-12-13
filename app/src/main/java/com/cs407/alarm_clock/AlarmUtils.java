@@ -28,7 +28,7 @@ public class AlarmUtils {
             e.printStackTrace();
         }
         long timestamp = date.getTime();
-        // 创建Intent
+        // Intent
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtras(bundle);
         PendingIntent pendingIntent;
@@ -46,7 +46,7 @@ public class AlarmUtils {
         Log.d(TAG, "addSingleAlarm: non-repeating alarm set");
     }
     public static void addSingleAlarm(Context context, long time, Bundle bundle) {
-        // 创建Intent
+        // Intent
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtras(bundle);
         PendingIntent pendingIntent;

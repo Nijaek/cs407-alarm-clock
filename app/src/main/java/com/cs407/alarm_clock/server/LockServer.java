@@ -40,7 +40,7 @@ public class LockServer extends Service {
     }
 
     private void initView() {
-        rootLayout = LayoutInflater.from(this).inflate(R.layout.activity_puzzle_initialize, null, false);
+        rootLayout = LayoutInflater.from(this).inflate(R.layout.activity_alarm_overview, null, false);
     }
 
     public void initWindowParams() {
